@@ -1,7 +1,37 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
-   {% block content %}
 
-    <h1> Hello Serge!</h1>
+                        {% block content %}
+
+        <main role="main" class="container">
+          <div class="row">
+            <div class="col-md-8">
+                <img src="{%static 'images/image2.jpg'%}"  alt="pic" class="im1">
+                <br>
+                <br>
+                <br>
+                <h1>Salut et Bienvenue à Connect 237!!</h1>
+                <p>Cette plateforme permet de rechercher des Designers et des Developpeurs selon le Profil adéquat à vos besoins!</p>
+            </div>
+
+                        <!--debut sidebar-->
+
+            <div class="col-md-4 mt-5">
+              <div class="content-section">
+                <h3>Acces rapide</h3>
+                <p class='text-muted'>Trouvez rapidement la personne adéquate à votre besoin!
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"><a href="#">Developpeurs Web</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Developpeurs mobiles</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Programmeurs</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Designers graphiques</a></li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+
 
    {% endblock %}

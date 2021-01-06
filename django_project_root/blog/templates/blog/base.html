@@ -57,12 +57,13 @@
             </nav>
                                         <!--fin navbar 2-->
 
+                                    {% block content %}
         <main role="main" class="container">
           <div class="row">
             <div class="col-md-8">
 
              
-                {% block content %}
+
                 
                 <img src="{%static 'images/image1.jpg'%}"  alt="pic" class="im1">
                 <br>
@@ -70,9 +71,6 @@
                 <br>
                 <h1>Salut et Bienvenue à Connect 237!!</h1>
                 <p>Cette plateforme permet de rechercher des Designers et des Developpeurs selon le Profil adéquat à vos besoins!</p>
-  
-  
-
             </div>
 
 <!--              debut sidebar-->
