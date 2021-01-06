@@ -15,6 +15,7 @@
     {% endif %}
 </head>
 <body>
+
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
         <div class="container">
@@ -30,6 +31,7 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
                 {% if user.is_authenticated %}
+                    <p class="pt-2 text-white">hello, {{ user.first_name }}</p>
                     <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                     <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                 {% else %}
@@ -41,6 +43,19 @@
         </div>
       </nav>
     </header>
+                            <!--fin navbar 1-->
+
+                            <!--debut navbar 2-->
+
+            <nav class="navbar navbar-light bg-light">
+              <div class="container d-flex justify-content-end">
+                <form class="d-flex justify-content-end">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </nav>
+                                        <!--fin navbar 2-->
 
         <main role="main" class="container">
           <div class="row">
@@ -49,31 +64,91 @@
              
                 {% block content %}
                 
-                <img src="{%static 'images/image1.jpg'%}"  alt="pic" >
+                <img src="{%static 'images/image1.jpg'%}"  alt="pic" class="im1">
                 <br>
                 <br>
                 <br>
                 <h1>Salut et Bienvenue à Connect 237!!</h1>
-                <p>Cette plateforme permet de rechercher des Designers et des Developers selon le Profil adéquat à vos besoins!</p>
+                <p>Cette plateforme permet de rechercher des Designers et des Developpeurs selon le Profil adéquat à vos besoins!</p>
   
   
-                {% endblock %}
+
             </div>
-            <div class="col-md-4">
+
+<!--              debut sidebar-->
+            <div class="col-md-4 mt-5">
               <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>You can put any information here you'd like.
+                <h3>Acces rapide</h3>
+                <p class='text-muted'>Trouvez rapidement la personne adéquate à votre besoin!
                   <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Developpeurs Web</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Developpeurs mobiles</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Programmeurs</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="#">Designers graphiques</a></li>
                   </ul>
                 </p>
               </div>
             </div>
           </div>
         </main>
+                                            <!--fin sidebar-->
+
+                                        <!--debut card-->
+
+    <div class="card-group">
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+</div>
+
+                                        <!--fin card-->
+
+                                 {% endblock content %}
+                                        <!--    footer-->
+
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mb-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; CONNECT 237 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+
 
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>

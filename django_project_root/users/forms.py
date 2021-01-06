@@ -25,13 +25,13 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image']
 
-class createFormation(ModelForm):
+class createFormation(forms.ModelForm):
     class Meta:
         model = Formation
         fields = "__all__"
         exclude = ['profile_id']
 
-class createProjets(ModelForm):
+class createProjets(forms.ModelForm):
     class Meta:
         model = Projets
         fields = "__all__"
