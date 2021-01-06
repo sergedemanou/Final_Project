@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, FormationForm
+from django.forms import formset_factory
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
@@ -81,3 +82,13 @@ def profile(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def formation(request):
+    context = {}
+    # creating a formset
+    FormationFormSet = formset_factory(FormationForm)
+    formset = FormationFormSet()
+    # Add the formset to context dictionary
+    context['formset'] = formset
+    return render(request, "users/formation.html", context)
