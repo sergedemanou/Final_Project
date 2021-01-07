@@ -19,7 +19,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Connect 237</a>
+          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Connect 237 </a><img src="{% static 'images/flag.png' %}" alt="" class="logo" height="30">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -45,7 +45,7 @@
     </header>
                             <!--fin navbar 1-->
 
-                            <!--debut navbar 2-->
+                            <!--debut search bar-->
 
             <nav class="navbar navbar-light bg-light">
               <div class="container d-flex justify-content-end">
@@ -55,7 +55,7 @@
                 </form>
               </div>
             </nav>
-                                        <!--fin navbar 2-->
+                                        <!--fin search bar-->
 
                                     {% block content %}
         <main role="main" class="container">

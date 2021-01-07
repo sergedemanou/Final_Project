@@ -25,17 +25,6 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image']
 
-# class FormationForm(forms.ModelForm):
-#     class Meta:
-#         model = Formation
-#         fields = "__all__"
-#         exclude = ['profile_id']
-#
-# class createProjets(forms.ModelForm):
-#     class Meta:
-#         model = Projets
-#         fields = "__all__"
-#         exclude = ['profile_id']
 
 class FormationForm(forms.ModelForm):
     class Meta:
@@ -45,6 +34,8 @@ class FormationForm(forms.ModelForm):
 
 
 
-# class ProjetsForm(forms.ModelForm):
-#     title = forms.CharField()
-#     description = forms.CharField()
+class ProjetsForm(forms.ModelForm):
+    class Meta:
+        model = Projets
+        fields = "__all__"
+        exclude = ['profile_id']

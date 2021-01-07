@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, FormationForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, FormationForm, ProjetsForm
 from django.forms import formset_factory
 from .models import *
 from django.contrib.auth.models import User
@@ -65,15 +65,24 @@ def profile(request):
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
 
-
+        f_form = FormationForm(request.POST)
+        pr_form = ProjetsForm(request.POST)
+        if f_form.is_valid() and pr_form.is_valid():
+            f_form.save()
+            pr_form.save()
 
     else:
-        u_form = UserUpdateForm(instance=request.user)
+        u_form = UserUpdateForm(instance=request.user) # cette ligne indique qu'on recupère l'user qui est cpnnecté et on met à jour son profil
         p_form = ProfileUpdateForm(instance=request.user.profile)
+        f_form = FormationForm()
+        pr_form = ProjetsForm()
+
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'f_form': f_form,
+        'pr_form': pr_form,
     }
     return render(request, 'users/profile.html', context)
 
@@ -84,11 +93,28 @@ def logout(request):
     return redirect('/')
 
 
-def formation(request):
-    context = {}
-    # creating a formset
-    FormationFormSet = formset_factory(FormationForm)
-    formset = FormationFormSet()
-    # Add the formset to context dictionary
-    context['formset'] = formset
-    return render(request, "users/formation.html", context)
+# def formation(request):
+#     context = {}
+#     # creating a formset
+#     FormationFormSet = formset_factory(FormationForm)
+#     formset = FormationFormSet(request.POST or None)
+#     # print formset data if it is valid
+#     if formset.is_valid():
+#         for form in formset:
+#             save()
+#     # Add the formset to context dictionary
+#     context['formset'] = formset
+#     return render(request, "users/profile.html", context)
+#
+# def projets(request):
+#     context = {}
+#     # creating a formset
+#     ProjetsFormSet = formset_factory(ProjetsForm)
+#     formset1 = ProjetsFormSet(request.POST or None)
+#     # print formset data if it is valid
+#     if formset1.is_valid():
+#         for form in formset1:
+#             print(form.cleaned_data)
+#     # Add the formset to context dictionary
+#     context['formset'] = formset1
+#     return render(request, "users/profile.html", context)
