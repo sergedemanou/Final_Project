@@ -93,28 +93,3 @@ def logout(request):
     return redirect('/')
 
 
-# def formation(request):
-#     context = {}
-#     # creating a formset
-#     FormationFormSet = formset_factory(FormationForm)
-#     formset = FormationFormSet(request.POST or None)
-#     # print formset data if it is valid
-#     if formset.is_valid():
-#         for form in formset:
-#             save()
-#     # Add the formset to context dictionary
-#     context['formset'] = formset
-#     return render(request, "users/profile.html", context)
-#
-# def projets(request):
-#     context = {}
-#     # creating a formset
-#     ProjetsFormSet = formset_factory(ProjetsForm)
-#     formset1 = ProjetsFormSet(request.POST or None)
-#     # print formset data if it is valid
-#     if formset1.is_valid():
-#         for form in formset1:
-#             print(form.cleaned_data)
-#     # Add the formset to context dictionary
-#     context['formset'] = formset1
-#     return render(request, "users/profile.html", context)
