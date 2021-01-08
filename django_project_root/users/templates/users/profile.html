@@ -44,17 +44,17 @@
                                         <th>date_de_début</th>
                                         <th>date_de_fin</th>
                                         <th>domaine</th>
-                                        <th>langage_de_programmation</th>
+                                        <th>langages_de_programmation</th>
                                     </tr>
-                                        {% for formation in formations_data %}
+                                        {% for formation in formation_data %}
                                      <tr>
-                                            <th>{{formation.intitulé}}</th>
-                                            <th>{{formation.établissement}}</th>
-                                            <th>{{formation.description}}</th>
-                                            <th>{{formation.date_de_début}}</th>
-                                            <th>{{formation.date_de_fin}}</th>
-                                            <th>{{formation.domaine}}</th>
-                                            <th>{{formation.langage_de_programmation}}</th>
+                                            <td>{{formation.intitulé}}</td>
+                                            <td>{{formation.établissement}}</td>
+                                            <td>{{formation.description}}</td>
+                                            <td>{{formation.date_de_début}}</td>
+                                            <td>{{formation.date_de_fin}}</td>
+                                            <td>{{formation.domaine}}</td>
+                                            <td>{{formation.langages_de_programmation}}</td>
                                     </tr>
                                             {% endfor  %}
                                 </table>
@@ -67,7 +67,7 @@
                 <br>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         <div class="card card-body">
                             <h5 class="d-flex justify-content-center">Projets:</h5>
                             <hr>
@@ -75,11 +75,13 @@
                                     <tr>
                                         <th>Intitulé</th>
                                         <th>Période</th>
+                                        <th>Lien</th>
                                     </tr>
                                         {% for projet in projets_data %}
                                      <tr>
-                                            <th>{{projet.intitulé}}</th>
-                                            <th>{{projet.période}}</th>
+                                            <td>{{projet.intitulé}}</td>
+                                            <td>{{projet.période}}</td>
+                                            <td>{{projet.lien}}</td>
                                     </tr>
                                             {% endfor  %}
                                 </table>

@@ -19,7 +19,8 @@ def register(request):
         cfpwd = request.POST.get("inputConfirmPassword")
         utilisateur = User.objects.create_user(last_name=name, first_name=firstname, username=username, password=password, email=email)
         utilisateur.save()
-        user_profile = Profile(user=utilisateur)
+        user_profile = Profile(user=utilisateur, role=request.POST.get("exampleRadios"))
+        print()
         user_profile.save()
 
         return redirect("login")
@@ -52,11 +53,12 @@ def viewlogin(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
+        u_form = UserUpdateForm(request.POST, instance=request.user)  # l'instance sert de modifier ou agir sur l'object fourni
         p_form = ProfileUpdateForm(request.POST,
                                    request.FILES,
                                    instance=request.user.profile)
         if u_form.is_valid() and p_form.is_valid():
+            print('validformation1')
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated!')
@@ -65,34 +67,30 @@ def profile(request):
         f_form = FormationForm(request.POST)
         pr_form = ProjetsForm(request.POST)
         if f_form.is_valid():
+            print('validformation')
             f = Formation(intitulé = f_form.cleaned_data.get('intitulé'),# ici nous devons recupérer les champs un par un parce qu'on a fait un exclude de profile_id dans le formulaire de FormationForm
                           établissement = f_form.cleaned_data.get('établissement'),
                           description = f_form.cleaned_data.get('description'),
                           date_de_début = f_form.cleaned_data.get('date_de_début'),
-                          date_de_fin = f_form.cleaned_data.get('diplômes_obtenus'),
+                          date_de_fin = f_form.cleaned_data.get('date_de_fin'),
                           domaine = f_form.cleaned_data.get('domaine'),
+                          diplômes_obtenus = f_form.cleaned_data.get('diplômes_obtenus'),
                           langages_de_programmation = f_form.cleaned_data.get('langages_de_programmation'),
                           profile_id = request.user.profile
                           )
+            print("after object creation")
             f.save()
-            formation_data = Formation.objects.all()
-            context = {
-                'formation_data': formation_data,
-            }
-            return redirect('profile', context)
+            return redirect('profile')
 
         if pr_form.is_valid():
             pr = Projets(intitulé=pr_form.cleaned_data.get('intitulé'),
                          période=pr_form.cleaned_data.get('période'),
+                         lien=pr_form.cleaned_data.get('lien'),
                          profile_id=request.user.profile
 
             )
             pr.save()
-            projets_data = Projets.objects.all()
-            context = {
-                'formation_data': projets_data,
-            }
-            return redirect('profile', context)
+            return redirect('profile')
     else:
         u_form = UserUpdateForm(instance=request.user) # cette ligne indique qu'on recupère l'user qui est cpnnecté et on met à jour son profil
         p_form = ProfileUpdateForm(instance=request.user.profile)

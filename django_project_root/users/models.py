@@ -12,9 +12,8 @@ class Profile(models.Model):
         ('invité', 'invité')
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    telephone = models.IntegerField
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    role = models.CharField(max_length=300, choices=PROFILE_CHOICE, default='invité')
+    role = models.CharField(max_length=300, choices=PROFILE_CHOICE)
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -46,6 +45,7 @@ class Formation(models.Model):
 class Projets(models.Model):
     intitulé = models.CharField(max_length=300)
     période = models.DateField()
+    lien = models.URLField(max_length = 200, null=True)
     profile_id = models.ForeignKey(Profile, related_name='projet', on_delete=models.CASCADE)
 
     def __str__(self):

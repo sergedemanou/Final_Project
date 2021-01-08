@@ -9,9 +9,12 @@
         <meta name="author" content="" />
         <title>Login - Info</title>
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <script src="{% static 'js/all.min.js' %}" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+
+  <body class="cover">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -37,6 +40,8 @@
                                             </div>
                                         </form>
                                     </div>
+
+
                                     <div class="card-footer text-center">
                                         <div class="small"><a href="{% url 'register' %}">Need an account? Sign up!</a></div>
                                     </div>
@@ -46,6 +51,8 @@
                     </div>
                 </main>
             </div>
+                                                                    <!--debut footer-->
+
             <div id="layoutAuthentication_footer">
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
@@ -61,6 +68,8 @@
                 </footer>
             </div>
         </div>
+                                                                            <!--fin footer-->
+
         <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}" crossorigin="anonymous"></script>
         <script src="{% static 'js/bootstrap.bundle.min.js ' %}" crossorigin="anonymous"></script>
         <script src="{% static 'js/scripts.js' %}"></script>
