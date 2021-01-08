@@ -12,6 +12,7 @@ class Profile(models.Model):
         ('invité', 'invité')
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    telephone = models.IntegerField
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     role = models.CharField(max_length=300, choices=PROFILE_CHOICE, default='invité')
 

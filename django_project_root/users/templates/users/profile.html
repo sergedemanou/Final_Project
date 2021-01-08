@@ -14,6 +14,7 @@
             </div>
           </div>
         <form method="POST" enctype="multipart/form-data">
+
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Profile Info</legend>
@@ -24,12 +25,73 @@
                 <input class="btn btn-outline-info" type="submit" value="Update">
             </div>
 
-        </form>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-             Ajouter une Formation
-            </button>
+
+            <!--Afficher les details du formulaire de la formation de l'utilisateur-->
+
+                            <br>
+
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card card-body">
+                            <h5 class="d-flex justify-content-center">Formations:</h5>
+                            <hr>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Intitulé</th>
+                                        <th>établissement</th>
+                                        <th>description</th>
+                                        <th>date_de_début</th>
+                                        <th>date_de_fin</th>
+                                        <th>domaine</th>
+                                        <th>langage_de_programmation</th>
+                                    </tr>
+                                        {% for formation in formations_data %}
+                                     <tr>
+                                            <th>{{formation.intitulé}}</th>
+                                            <th>{{formation.établissement}}</th>
+                                            <th>{{formation.description}}</th>
+                                            <th>{{formation.date_de_début}}</th>
+                                            <th>{{formation.date_de_fin}}</th>
+                                            <th>{{formation.domaine}}</th>
+                                            <th>{{formation.langage_de_programmation}}</th>
+                                    </tr>
+                                            {% endfor  %}
+                                </table>
+                            <a class="btn btn-outline-info  btn-sm btn-block" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Ajouter une formation</a>
+                            <a class="btn btn-outline-danger  btn-sm btn-block" href=""> Tout Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-body">
+                            <h5 class="d-flex justify-content-center">Projets:</h5>
+                            <hr>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <th>Intitulé</th>
+                                        <th>Période</th>
+                                    </tr>
+                                        {% for projet in projets_data %}
+                                     <tr>
+                                            <th>{{projet.intitulé}}</th>
+                                            <th>{{projet.période}}</th>
+                                    </tr>
+                                            {% endfor  %}
+                                </table>
+                            <a class="btn btn-outline-info  btn-sm btn-block" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">Ajouter un projet</a>
+                            <a class="btn btn-outline-danger  btn-sm btn-block" href=""> Tout Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -47,20 +109,18 @@
                         {% csrf_token %}
                         {{ f_form.as_p }}
 
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                      </div>
                     </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Sauvegarder</button>
                   </div>
                 </div>
               </div>
             </div>
 
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
-             Ajouter un Projet
-            </button>
+
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -78,15 +138,79 @@
                         {% csrf_token %}
                         {{ pr_form.as_p }}
 
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                      </div>
                     </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Sauvegarder</button>
                   </div>
                 </div>
               </div>
             </div>
         </div>
     </div>
+                                <!--end modal-->
+            <br>
+
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+                    <h5>Client:</h5>
+                    <hr>
+                    <a class="btn btn-outline-info  btn-sm btn-block" href="">Modifier le Client</a>
+                    <a class="btn btn-outline-danger  btn-sm btn-block" href="">Supprimer le Client</a>
+
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="card card-body">
+                    <h5>Informations</h5>
+                    <hr>
+                    <p>Email: </p>
+                    <p>Telephone: </p>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="card card-body">
+                    <h5>Total des Commandes</h5>
+                    <hr>
+                    <h1 style="text-align: center;padding: 10px"></h1>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <form method="get">
+
+                    <button class="btn btn-primary" type="submit">Search</button>
+                  </form>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Produit</th>
+                            <th>Categorie</th>
+                            <th>Date de Commande</th>
+                            <th>Status</th>
+                            <th>Mise à Jour</th>
+                            <th>Supprimer</th>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
 {% endblock content %}
