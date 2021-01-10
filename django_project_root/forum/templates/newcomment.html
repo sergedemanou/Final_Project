@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+   {% block content %}
+<h3> List of Comments </h3>
+
+{% for comment in comments %}
+
+<h4> {{ comment.text }}   </h4>
+
+<h6> by {{ user }}  </h6>
+
+
+{% endfor %}
+
+<form  method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="submit">
+</form>
+
+
+
+   {% endblock %}

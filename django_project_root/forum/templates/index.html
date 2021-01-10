@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+   {% block content %}
+
+
+            <h2 class="jumbotron">
+                Currently active forums: {{count}}
+                <form method="POST" action="{% url 'newthread' %}">
+                    {% csrf_token %}
+                <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+                </form>
+            </h2>
+            <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+
+
+            {%for forum in forums %}
+
+                <div class="card box container">
+                    <br>
+                    <div class="card-title">
+                        <a href="{% url 'newcomment' forum.id %}"><h3>{{forum.subject}}</h3></a>
+
+                    </div>
+
+                            <hr>
+                            <p> By: {{forum.creator.username}}</p>
+                            email- {{forum.creator.email}}
+                            <hr>
+                            <h4>Views from other users</h4>
+
+                            <form method="POST">
+                                {% csrf_token %}
+                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <br>
+
+            {%endfor%}
+   {% endblock %}
