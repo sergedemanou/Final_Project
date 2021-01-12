@@ -19,4 +19,6 @@ def dev_web(request):
 def programmeur(request):
     return render(request, 'blog/programmeur.html')
 
+def policy(request):
+    return render(request, 'blog/policy.html')
 
