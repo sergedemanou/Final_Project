@@ -18,3 +18,11 @@ form{
     border: 1px solid mediumspringgreen;
     margin: 0 auto;
 }
+.cover{
+    background-image: url('background.jpg');
+}
+table {
+    border: medium solid #6495ed;
+    border-collapse: collapse;
+    width: 50%;
+}

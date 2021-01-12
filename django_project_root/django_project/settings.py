@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "users",
     "forum",
     'crispy_forms',
+    'phone_field',
 ]
 
 MIDDLEWARE = [

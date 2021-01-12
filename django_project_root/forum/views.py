@@ -42,3 +42,14 @@ def newcomment(request, id):
             return redirect('newcomment', id)
     context = {'form': form, 'comments': comments, 'user':user}
     return render(request, 'newcomment.html', context)
+
+# def delete_post(request, id):
+
+def searchbar(request):
+    if request.method == 'POST':
+        search = request.POST.get('search')
+        posts = Thread.objects.filter(creator=request.user)
+        return render (request, 'searchbar.html', {'posts': posts})
+
+    return render(request, 'searchbar.html', {'posts': None})
+

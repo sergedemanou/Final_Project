@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+
 from .models import *
 from django import forms
 
@@ -17,3 +18,6 @@ class createComment(forms.Form):
         model = Comment
         fields = ["text"]"""
 
+# class Delete_post(request, pk):
+#     template = 'forum/delete_post.html'
+#     post = get_object_or_404()
