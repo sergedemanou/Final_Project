@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from .models import *
-
-
+from django.core.validators import RegexValidator
+from phone_field import PhoneField
 
 
 class UserRegisterForm(UserCreationForm):
@@ -25,7 +25,7 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image','role']
+        fields = ['image','role','phone']
 
 
 class FormationForm(forms.ModelForm):

@@ -58,8 +58,6 @@
                                     </tr>
                                             {% endfor  %}
                                 </table>
-                            <a class="btn btn-outline-info  btn-sm btn-block" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Ajouter une formation</a>
-                            <a class="btn btn-outline-danger  btn-sm btn-block" href=""> Tout Supprimer</a>
                         </div>
                     </div>
                 </div>
@@ -85,85 +83,14 @@
                                     </tr>
                                             {% endfor  %}
                                 </table>
-                            <a class="btn btn-outline-info  btn-sm btn-block" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">Ajouter un projet</a>
-                            <a class="btn btn-outline-danger  btn-sm btn-block" href=""> Tout Supprimer</a>
                         </div>
                     </div>
                 </div>
 
             </form>
 
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Ajouter une Formation</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form method="POST" enctype="multipart/form-data">
-                        {{ f_form.management_data }}
-                        {% csrf_token %}
-                        {{ f_form.as_p }}
-
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle1">Ajouter un projet</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form method="POST" enctype="multipart/form-data">
-                        {{ pr_form.management_data }}
-                        {% csrf_token %}
-                        {{ pr_form.as_p }}
-
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-                                <!--end modal-->
             <br>
 
-        <div class="row">
-            <div class="col-md">
-                <div class="card card-body">
-                    <h5>Client:</h5>
-                    <hr>
-                    <a class="btn btn-outline-info  btn-sm btn-block" href="">Modifier le Client</a>
-                    <a class="btn btn-outline-danger  btn-sm btn-block" href="">Supprimer le Client</a>
-
-                </div>
-            </div>
 
             <div class="col-md">
                 <div class="card card-body">
@@ -174,13 +101,6 @@
                 </div>
             </div>
 
-            <div class="col-md">
-                <div class="card card-body">
-                    <h5>Total des Commandes</h5>
-                    <hr>
-                    <h1 style="text-align: center;padding: 10px"></h1>
-                </div>
-            </div>
         </div>
 
 

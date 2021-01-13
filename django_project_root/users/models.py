@@ -1,22 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image # pour importer les images avec la librairie pillow
-from phone_field import PhoneField
+from phonenumber_field.modelfields import PhoneNumberField
+
 # Create your models here.
 
 
 
 class Profile(models.Model):
     PROFILE_CHOICE = (
-        ('developpeur', 'developpeur'),
+        ('developpeurWeb', 'developpeurWeb'),
+        ('developpeurMobile', 'developpeurMobile'),
         ('designer', 'designer'),
         ('invité', 'invité')
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     role = models.CharField(max_length=300, choices=PROFILE_CHOICE)
-    phone = PhoneField(blank=True, help_text='Contact phone number')
-    print(phone)
+    phone = PhoneNumberField(blank=True, help_text='Contact phone number', null=True)
 
 
     def __str__(self):

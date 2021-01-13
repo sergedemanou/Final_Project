@@ -7,7 +7,8 @@ urlpatterns = [
     path('designer/',views.designer, name='designer'),
     path('dev_mobile/',views.dev_mobile, name='dev_mobile'),
     path('dev_web/',views.dev_web, name='dev_web'),
-    path('programmeur/',views.programmeur, name='programmeur'),
+    path('voir_profil_dev/<int:id>',views.voir_profil_dev, name='voir_profil_dev'),
+    path('voir_profil_des/<int:id>',views.voir_profil_des, name='voir_profil_des'),
     path('policy/',views.policy, name='policy'),
 
 ]

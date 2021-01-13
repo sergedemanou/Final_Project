@@ -16,6 +16,7 @@ def register(request):
         username = request.POST.get("inputUsername")
         password = request.POST.get("inputPassword")
         email = request.POST.get("inputEmailAddress")
+        phone = request.POST.get('inputPhone')
         cfpwd = request.POST.get("inputConfirmPassword")
         utilisateur = User.objects.create_user(last_name=name, first_name=firstname, username=username, password=password, email=email)
         utilisateur.save()
@@ -115,5 +116,15 @@ def profile(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def delete_f(request):
+    formation_data = Formation.objects.all()
+    formation_data.delete()
+    return redirect('profile')
+
+def delete_p(request):
+    projets_data = Formation.objects.all()
+    projets_data.delete()
+    return redirect('profile')
 
 

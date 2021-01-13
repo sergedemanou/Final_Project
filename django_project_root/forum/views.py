@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
+from blog.models import *
+from users.models import *
+from forum.models import *
 
 # Create your views here.
 #.discussion_set.all()
@@ -48,7 +51,7 @@ def newcomment(request, id):
 def searchbar(request):
     if request.method == 'POST':
         search = request.POST.get('search')
-        posts = Thread.objects.filter(creator=request.user)
+        posts = Profile.objects.filter(role__contains=search)
         return render (request, 'searchbar.html', {'posts': posts})
 
     return render(request, 'searchbar.html', {'posts': None})

@@ -54,7 +54,7 @@
               <div class="container d-flex justify-content-end">
                 <form class="d-flex justify-content-end search-label-icon" method="POST" action="{% url 'searchbar' %}">
                     {% csrf_token %}
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
               </div>
@@ -85,7 +85,6 @@
                   <ul class="list-group">
                     <li class="list-group-item list-group-item-light"><a href="{% url 'dev_web' %}">Developpeurs Web</a></li>
                     <li class="list-group-item list-group-item-light"><a href="{% url 'dev_mobile' %}">Developpeurs mobiles</a></li>
-                    <li class="list-group-item list-group-item-light"><a href="{% url 'programmeur' %}">Programmeurs</a></li>
                     <li class="list-group-item list-group-item-light"><a href="{% url 'designer' %}">Designers graphiques</a></li>
                   </ul>
                 </p>
@@ -156,7 +155,7 @@
                                         <!--    footer-->
 
             <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-dark mb-auto">
+                <footer class="py-4 bg-dark mb-auto ">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; CONNECT 237 2021</div>

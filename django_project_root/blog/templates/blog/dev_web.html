@@ -4,7 +4,20 @@
 
    {% block content %}
 
+   {%  for utilisateur in utilisateurs  %}
 
-<h3>Cette section est vide pour le moment !</h3>
+   <div class="container">
+         <div class="card w-50 ">
+            <h5 class="card-header bg-grey ">Nom du developpeur: {{ utilisateur.user.last_name }} {{ utilisateur.user.first_name }}</h5>
+            <div class="card-body">
+            <h5 class="card-title">Developeur Web</h5>
+            <p class="card-text">Pour plus d'Informations sur ce developpeur cliquez sur le bouton</p>
+            <a href="{% url 'voir_profil_dev'  utilisateur.user.id %}"> <button type="submit" value="{{ utilisateur.user.id }}" class="btn btn-primary"> Voir profil</button> </a>
+            </div>
+         </div>
+         <br>
+   </div>
 
-   {% endblock %}
+{% endfor %}
+
+{% endblock %}
